@@ -1,0 +1,45 @@
+$color-animation-left--one: #ceffef;
+$color-animation-left--two: #c0efff;
+$color-animation-left--three: #d9f5ff;
+
+@mixin wave {
+    position: absolute;
+    z-index: -1;
+    top: -1700px;
+    left: calc((100% - 1800px)/2);
+    background: $color-animation-left--one;
+    width: 1800px;
+    height: 1800px;
+    border-radius: 43%;
+    animation: drift 18000ms infinite linear;
+}
+
+.wave {
+    @include wave;
+
+    &-wrapper {
+        z-index: -1;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 400px;
+        pointer-events: none;
+    }
+    &-two {
+        background: $color-animation-left--two;
+        animation-duration: 23000ms;
+        left: calc((100% - 1800px)/2 + 200px);
+    }
+
+    &-three {
+        background: $color-animation-left--three;
+        animation-duration: 20000ms;
+        left: calc((100% - 1800px)/2 - 200px);
+    }
+}
+
+@keyframes drift {
+    from { transform: rotate(0deg); }
+    from { transform: rotate(360deg); }
+}
