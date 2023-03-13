@@ -22,6 +22,11 @@ export const Menu = ({ handleLoginButton }) => {
   const [show, setShow] = useState(false);
   const [login, setLogin] = useState(true);
 
+  const superUser =
+    currentUser?.roles === "admin" ||
+    currentUser?.roles === "moderator" ||
+    currentUser?.roles === "author";
+
   const handleBackdropClick = (e) => {
     if (e.currentTarget === e.target) {
       setOpen(!open);
@@ -34,18 +39,15 @@ export const Menu = ({ handleLoginButton }) => {
     }
   };
 
-
   const trygger = (e) => {
     if (e.currentTarget === e.target) {
       setShow(!show);
     }
   };
 
-
   const loginPageTrygger = () => {
-
-setLogin(!login)
-  }
+    setLogin(!login);
+  };
 
   useEffect(() => {
     if (currentUser) {
@@ -56,7 +58,11 @@ setLogin(!login)
   return (
     <MenuWrapper>
       <ModalWindow open={show} trygger={trygger}>
-        {login ? <Login loginPageTrygger={loginPageTrygger}/> : <Register loginPageTrygger={loginPageTrygger}/>}
+        {login ? (
+          <Login loginPageTrygger={loginPageTrygger} />
+        ) : (
+          <Register loginPageTrygger={loginPageTrygger} />
+        )}
       </ModalWindow>
       <Hamburger open={open} setOpen={setOpen} />
       <Overlay open={open} onClick={handleBackdropClick} />
@@ -69,7 +75,11 @@ setLogin(!login)
               </Link>
             </NavigationItem>
           ))}
-
+          {superUser && (
+            <NavigationItem>
+              <Link to="/panel/home">Panel</Link>
+            </NavigationItem>
+          )}
           <LoginButton setShow={setShow} />
         </NavigationList>
       </Navigation>

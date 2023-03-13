@@ -30,7 +30,7 @@ export const loginIcon = <RiLoginCircleLine size={24} color="inherit"/>
 
 export const defaultUser = <FaUserCheck size={24} color="inherit"/>
 
-export const authorUser = <FaUserEdit size={24} color="inferit"/>
+export const authorUser = <FaUserEdit size={24} color="inherit"/>
 
 export const modUser = <FaUserCog size={24} color="inherit"/>
 
