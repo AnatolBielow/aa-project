@@ -21,6 +21,7 @@ import { Layout } from "./Components/Layout/Layout";
 import { useContext } from "react";
 import { AuthContext } from "./context/authContext.js";
 import { Panel } from "./Components/Panel/Panel.jsx";
+import { Users } from "./Components/Users/Users.jsx";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -70,7 +71,7 @@ function App() {
                   <Route path="home" element={<Panel>Home</Panel>} />
                   <Route path="posts" element={<Panel><div>Posty</div></Panel>}/>
                   <Route path="files" element={<Panel><div>Files</div></Panel>}/>
-                  <Route path="users" element={<Panel><div>Users</div></Panel>}/>
+                  <Route path="users" element={<Panel><Users/></Panel>}/>
                   <Route path="addresses" element={<Panel><div>Adresy</div></Panel>}/>
 
                 </Route>
