@@ -1,5 +1,6 @@
 {
   "name": "aasztokholm",
+  "homepage": "https://test.aasztokholm.se/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,11 +12,13 @@
     "create-react-app": "^5.0.1",
     "formik": "^2.2.9",
     "leaflet": "^1.8.0",
+    "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-dotenv": "^0.1.3",
     "react-icons": "^4.4.0",
     "react-leaflet": "^4.0.0",
+    "react-quill": "^2.0.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-toastify": "^9.1.1",

@@ -22,6 +22,7 @@ import { useContext } from "react";
 import { AuthContext } from "./context/authContext.js";
 import { Panel } from "./Components/Panel/Panel.jsx";
 import { Users } from "./Components/Users/Users.jsx";
+import { Write } from "./Components/Write/Write.jsx";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -68,7 +69,7 @@ function App() {
                   path="panel"
                   element={<ProtectedRoute user={superUser} />}
                 >
-                  <Route path="home" element={<Panel>Home</Panel>} />
+                  <Route path="home" element={<Panel><Write/></Panel>} />
                   <Route path="posts" element={<Panel><div>Posty</div></Panel>}/>
                   <Route path="files" element={<Panel><div>Files</div></Panel>}/>
                   <Route path="users" element={<Panel><Users/></Panel>}/>
