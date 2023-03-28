@@ -23,6 +23,7 @@ import { AuthContext } from "./context/authContext.js";
 import { Panel } from "./Components/Panel/Panel.jsx";
 import { Users } from "./Components/Users/Users.jsx";
 import { Write } from "./Components/Write/Write.jsx";
+import { PostsEditor } from "./Components/PostsEditor/PostsEditor.jsx";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -70,7 +71,7 @@ function App() {
                   element={<ProtectedRoute user={superUser} />}
                 >
                   <Route path="home" element={<Panel><Write/></Panel>} />
-                  <Route path="posts" element={<Panel><div>Posty</div></Panel>}/>
+                  <Route path="posts" element={<Panel><PostsEditor/></Panel>}/>
                   <Route path="files" element={<Panel><div>Files</div></Panel>}/>
                   <Route path="users" element={<Panel><Users/></Panel>}/>
                   <Route path="addresses" element={<Panel><div>Adresy</div></Panel>}/>

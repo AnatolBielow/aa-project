@@ -13,21 +13,24 @@ import {
   Title,
   Wrapper,
 } from "./Write.styled";
+import axios from "axios";
+
+const URL = process.env.REACT_APP_HOST
 
 export const Write = () => {
   const state = useLocation().state;
   const [title, setTitle] = useState(state?.title || "");
-  const [desc, setDesc] = useState(state?.desc || "");
+  const [desc, setDesc] = useState(state?.description || "");
   const [content, setContent] = useState(state?.content || "");
   const [file, setFile] = useState(null);
 
   const navigate = useNavigate();
-
+ 
   const upload = async () => {
     try {
       const formData = new FormData();
       formData.append("file", file);
-      const res = await API.post("/upload", formData);
+      const res = await axios.post(`${URL}upload/`, formData);
       return res.data;
     } catch (err) {
       console.log(err);
@@ -37,12 +40,11 @@ export const Write = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     const imgUrl = await upload();
-
     try {
       state
         ? await API.put(`/posts/${state.id}`, {
             title,
-            description : desc,
+            description: desc,
             content,
             img: file ? imgUrl : "",
           })
@@ -53,7 +55,7 @@ export const Write = () => {
             img: file ? imgUrl : "",
             date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
           });
-    
+          navigate("/panel/posts")
     } catch (err) {
       console.log(err);
     }
@@ -66,11 +68,13 @@ export const Write = () => {
           <Title
             type="text"
             placeholder="Tytuł"
+            value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
           <Description
             type="text"
             placeholder="Deskrypcja"
+            value={desc}
             onChange={(e) => setDesc(e.target.value)}
           />
         </HeadWrapper>
@@ -88,11 +92,11 @@ export const Write = () => {
             <b>Visibility: </b> Public
           </span>
           <input
-            style={{ display: "none" }}
+            
             type="file"
             id="file"
-            name=""
-            onChange={(e) => setFile(e.target.files[0])}
+            name="file"
+            onChange={(e)=> setFile(e.target.files[0])}
           />
           <label className="file" htmlFor="file">
             Upload Image

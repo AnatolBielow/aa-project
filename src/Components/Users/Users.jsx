@@ -32,7 +32,6 @@ export const Users = () => {
     try {
       const res = await API.get("/users");
       setUsers(res.data);
-      console.log("Data fetching");
     } catch (err) {
       console.log(err);
     }
