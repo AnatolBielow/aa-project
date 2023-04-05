@@ -1,13 +1,12 @@
 import { Page } from "../Page";
 import image from "../../Images/newspaper.jpg";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import API from "../../../services/api";
 import { Link, useNavigate } from "react-router-dom";
 import {
   Button,
   ContentWrapper,
   Description,
-  EventsPage,
   EventsSection,
   Img,
   ImgContainer,
@@ -15,10 +14,14 @@ import {
   Posts,
   Title,
 } from "./Events.styled";
+import { AuthContext } from "../../../context/authContext";
 
+const URL = process.env.REACT_APP_CLIENT
 const title = "Wydarzenia Intergrupy AA";
 
 export const Events = () => {
+  const {currentUser} = useContext(AuthContext)
+  
  const navigate = useNavigate() 
   // const posts = [
   //   {
@@ -72,7 +75,7 @@ export const Events = () => {
         {posts.map((post) => (
           <Post key={post.id}>
             <ImgContainer>
-              <img src={`upload/${post.img}`} alt="" />
+              <Img src={`${URL}${post.img}`} alt="" />
             </ImgContainer>
             <ContentWrapper>
            

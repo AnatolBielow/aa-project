@@ -24,6 +24,7 @@ import { Panel } from "./Components/Panel/Panel.jsx";
 import { Users } from "./Components/Users/Users.jsx";
 import { Write } from "./Components/Write/Write.jsx";
 import { PostsEditor } from "./Components/PostsEditor/PostsEditor.jsx";
+import { SingleEvent } from "./Components/Pages/SingleEvent/SingleEvent.jsx";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -61,7 +62,8 @@ function App() {
                   path="meetings"
                   element={<Meetings addresses={addresses} />}
                 />
-                <Route path="events" element={<Events events={events} />} />
+                <Route path="events" element={<Events/>} />
+                <Route path="events/:id" element={<SingleEvent/>}/>
                 <Route
                   path="contacts"
                   element={<Contact contact={contact} />}
