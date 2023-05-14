@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "react-quill/dist/quill.snow.css";
 import API from "../../services/api";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -38,8 +38,7 @@ export const Write = () => {
     try {
       const formData = new FormData();
       formData.append("file", file);
-      const res = await axios.post(`${URL}upload/`, formData);
-      console.log(file)
+      const res = await axios.post(`https://api.aasztokholm.se/api/uploads/images/`, formData);
       return res.data;
     } catch (err) {
       console.log(err);
@@ -51,7 +50,7 @@ export const Write = () => {
   setDesc(state?.description || "");
   setContent(state?.content || "");
    setStatus("draft");
-  setFile(state?.img || null);
+  setFile(null);
   }
 
 

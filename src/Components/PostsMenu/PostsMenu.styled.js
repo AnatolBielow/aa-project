@@ -3,7 +3,6 @@ import { theme } from "../../Helpers";
 
 export const PostsContainer = styled.div`
   display: flex;
-  flex: 2;
   flex-direction: column;
   gap: 25px;
 `;
@@ -15,9 +14,11 @@ export const Title = styled.h2`
 `;
 
 export const Post = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  /* display: flex;
+ 
+  flex-direction: column; */
+  /* gap: 10px; */
+  width: 400px;
   padding: 20px;
   background-color: white;
   border: 1px solid #d1d1d1;

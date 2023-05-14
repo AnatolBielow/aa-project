@@ -1,8 +1,7 @@
-import { Page } from "../Page";
 import image from "../../Images/newspaper.jpg";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import API from "../../../services/api";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   Button,
   ContentWrapper,
@@ -12,15 +11,14 @@ import {
   ImgContainer,
   Post,
   Posts,
+  Private,
   Title,
 } from "./Events.styled";
-import { AuthContext } from "../../../context/authContext";
 
 const URL = process.env.REACT_APP_CLIENT
 const title = "Wydarzenia Intergrupy AA";
 
 export const Events = () => {
-  const {currentUser} = useContext(AuthContext)
   
  const navigate = useNavigate() 
   // const posts = [
@@ -59,7 +57,9 @@ export const Events = () => {
     const fetchPosts = async ()=> {
       try {
         const res = await API.get('/posts')
-        setPosts(res.data)
+        const response = res.data
+        const acceptPosts = response.filter(resp => resp.status !=="draft")
+        setPosts(acceptPosts)
       } catch (error) {
         console.log(error)
       }
@@ -71,11 +71,13 @@ export const Events = () => {
 
   return (
     <EventsSection img={image}>
-      <Posts>
+      {posts? <Posts>
         {posts.map((post) => (
-          <Post key={post.id}>
+      
+          <Post key={post.id}>    
+          {post.status==="private" &&  <Private>Private</Private>}
             <ImgContainer>
-              <Img src={`${URL}${post.img}`} alt="" />
+             {post.img && <Img src={`${URL}uploads/images/${post.img}`} alt="" />} 
             </ImgContainer>
             <ContentWrapper>
            
@@ -85,7 +87,11 @@ export const Events = () => {
             </ContentWrapper>
           </Post>
         ))}
-      </Posts>
+      </Posts> : <Post>
+        <Title>{title}</Title>
+        <Description>Tu będą się pojawiać wydarzenia z życia Grupy AA</Description>
+        </Post>}
+      
     </EventsSection>
   );
 };

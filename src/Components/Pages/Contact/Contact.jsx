@@ -5,8 +5,8 @@ import {
   ContactContainer,
 } from "./Contact.styled";
 import image from "../../Images/contact.jpg";
-// import ComentaryForm from "../../ComentaryForm/ComentaryForm";
-// import { Form } from "../../ComentaryForm/ComentaryForm.styled";
+import {ComentaryForm} from "../../ComentaryForm/ComentaryForm";
+import { Form } from "../../ComentaryForm/ComentaryForm.styled";
 import { contactPhone, contactMail } from "../../Images/Icons";
 
 export const Contact = ({ contact }) => {
@@ -31,9 +31,9 @@ export const Contact = ({ contact }) => {
           </div>
         </ContactContainer>
 
-        {/* <Form>
+        <Form>
           <ComentaryForm />
-        </Form> */}
+        </Form>
       </ContactWrapper>
     </Section>
   );

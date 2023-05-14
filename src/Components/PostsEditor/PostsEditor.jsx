@@ -42,6 +42,7 @@ const handleDelete = async (id) => {
                 <PostItem key={post.id}>
                     <Title>{post.title}</Title>
                     <Desc>{post.description}</Desc>
+                    <Desc>{post.status}</Desc>
                     <BtnWrapper>
                         <Edit to={`/panel/home?edit=2`} state={post}>{editIcon}</Edit>
                     </BtnWrapper>

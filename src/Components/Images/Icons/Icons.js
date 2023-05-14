@@ -15,7 +15,7 @@ import {
 import { FiPhone } from "react-icons/fi";
 import { HiOutlinePhone, HiOutlineMail } from "react-icons/hi";
 import { RiLoginCircleLine } from "react-icons/ri";
-import { AiOutlineEdit } from "react-icons/ai";
+import { AiOutlineDownload, AiOutlineEdit, AiOutlineFile } from "react-icons/ai";
 import { MdDeleteForever } from "react-icons/md";
 
 export const steps = <IoFootstepsOutline size={50} color="inherit" />;
@@ -51,3 +51,7 @@ export const UserIcon = <FaUser size={50} color="inherit" />;
 export const editIcon = <AiOutlineEdit size={24} color="inherit" />;
 
 export const deleteIcon = <MdDeleteForever size={24} color="inherit" />;
+
+export const fileIcon = <AiOutlineFile size={24} color="inherit"/>
+
+export const downloadIcon = <AiOutlineDownload size={24} color="inherit"/>

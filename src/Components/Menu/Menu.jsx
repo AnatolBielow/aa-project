@@ -75,6 +75,9 @@ export const Menu = ({ handleLoginButton }) => {
               </Link>
             </NavigationItem>
           ))}
+          {currentUser && (  <NavigationItem>
+              <Link to="/files">Sprawozdania</Link>
+            </NavigationItem>)}
           {superUser && (
             <NavigationItem>
               <Link to="/panel/home">Panel</Link>

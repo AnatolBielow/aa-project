@@ -4,6 +4,7 @@ import { theme } from "../../../Helpers/theme";
 export const EventsSection = styled.section`
   padding: 20px;
   gap: 15px;
+  margin: 0 auto;
   background: linear-gradient(
       to bottom,
       rgba(255, 255, 255, 1),
@@ -35,6 +36,7 @@ export const Posts = styled.div`
 `;
 
 export const Post = styled.div`
+position: relative;
   padding-bottom: 20px;
   background-color: rgba(255, 255, 255, 1);
   &:not(:last-child) {
@@ -90,3 +92,14 @@ export const Button = styled.button`
     color: white;
   }
 `;
+
+export const Private = styled.div` 
+position: absolute;
+right: 10px;
+top: -35px;
+padding:2px 15px;
+transform: skewx(-20deg);
+color: white;
+font-weight: 700;
+background-color: ${theme.accent};
+`

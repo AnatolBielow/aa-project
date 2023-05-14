@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate, BrowserRouter, Outlet } from "react-router-dom";
 import { GlobalStyle } from "./GlobalStyle.js";
 import { ThemeProvider } from "styled-components";
-import { contact, addresses, theme, events } from "./Helpers";
+import { contact, theme } from "./Helpers";
 import {
   Home,
   Events,
@@ -25,6 +25,10 @@ import { Users } from "./Components/Users/Users.jsx";
 import { Write } from "./Components/Write/Write.jsx";
 import { PostsEditor } from "./Components/PostsEditor/PostsEditor.jsx";
 import { SingleEvent } from "./Components/Pages/SingleEvent/SingleEvent.jsx";
+import { FilesEditor } from "./Components/FilesEditor/FilesEditor.jsx";
+import { Files } from "./Components/Pages/Files/Files.jsx";
+import { MeetingsEditor } from "./Components/MeetingsEditor/MeetingsEditor.jsx";
+import { MeetingSingleEdit } from "./Components/MeetingSingleEdit/MeetingSingleEdit.jsx";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -60,7 +64,7 @@ function App() {
                 <Route path="questionnaire" element={<Questionnaire />} />
                 <Route
                   path="meetings"
-                  element={<Meetings addresses={addresses} />}
+                  element={<Meetings/>}
                 />
                 <Route path="events" element={<Events/>} />
                 <Route path="events/:id" element={<SingleEvent/>}/>
@@ -69,15 +73,22 @@ function App() {
                   element={<Contact contact={contact} />}
                 />
                 <Route
+                  path="files"
+                  element={<ProtectedRoute user={currentUser} />}
+                >
+                  <Route path="" element={<Files/>} />
+                 
+                </Route>
+                <Route
                   path="panel"
                   element={<ProtectedRoute user={superUser} />}
                 >
                   <Route path="home" element={<Panel><Write/></Panel>} />
                   <Route path="posts" element={<Panel><PostsEditor/></Panel>}/>
-                  <Route path="files" element={<Panel><div>Files</div></Panel>}/>
+                  <Route path="files" element={<Panel><FilesEditor/></Panel>}/>
                   <Route path="users" element={<Panel><Users/></Panel>}/>
-                  <Route path="addresses" element={<Panel><div>Adresy</div></Panel>}/>
-
+                  <Route path="addresses" element={<Panel><MeetingsEditor/></Panel>}/>
+                  <Route path="address" element={<Panel><MeetingSingleEdit/></Panel>}/>
                 </Route>
 
                 <Route path="*" element={<Home />} />

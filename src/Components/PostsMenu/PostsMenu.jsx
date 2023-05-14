@@ -20,7 +20,9 @@ export const PostsMenu = () => {
   const fetchPosts = async () => {
     try {
       const res = await API.get("/posts");
-      setPosts(res.data);
+      const response = res.data
+      const acceptPosts = response.filter(resp => resp.status !=="draft")
+      setPosts(acceptPosts)
     } catch (error) {
       console.log(error);
     }
@@ -61,7 +63,7 @@ export const PostsMenu = () => {
       <Title>Inne wydarzenia</Title>
       {posts.map((post) => (
         <Post key={post.id}>
-          <Img src={`${URL}${post?.img}`} alt="" />
+          <Img src={`${URL}uploads/images/${post?.img}`} alt="" />
           <PostTitle>{post.title}</PostTitle>
           <Button onClick={() => navigate(`/events/${post.id}`)}>
             Czytaj więcej

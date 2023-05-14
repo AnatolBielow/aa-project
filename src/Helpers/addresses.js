@@ -1,5 +1,6 @@
 export const addresses = [
   {
+    id: 1,
     city: "Sztokholm",
     groupName: "Odenplan",
     street: "Karlbergsvägen 32B",
@@ -10,6 +11,7 @@ export const addresses = [
     openDay: "Ostatnia niedziela miesiąca",
   },
   {
+    id: 2,
     city: "Sztokholm",
     groupName: "Nadzieja",
     street: "Södermannagatan 52",
@@ -20,6 +22,7 @@ export const addresses = [
     openDay: "Ostatnia niedziela miesiąca",
   },
   {
+    id: 3,
     city: "Vendelsö",
     groupName: "Stella Maris",
     street: "Vendelsömalmsvägen 200",
@@ -30,6 +33,7 @@ export const addresses = [
     openDay: "Ostatnia sobota miesiąca",
   },
   {
+    id: 4,
     city: "Märsta",
     groupName: "Pojednanie",
     street: "Stockholmsvägen 50",

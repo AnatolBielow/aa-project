@@ -14,5 +14,7 @@ height: 20vmin;
   padding: 2vmin;
   @media (min-width: 1200px) {
     padding: 25px;
+    width: 150px;
+    height: 150px;
   }
 `
