@@ -72,13 +72,10 @@ function App() {
                   path="contacts"
                   element={<Contact contact={contact} />}
                 />
-                <Route
-                  path="files"
-                  element={<ProtectedRoute user={currentUser} />}
-                >
-                  <Route path="" element={<Files/>} />
+                
+                  <Route path="files" element={<Files/>} />
                  
-                </Route>
+             
                 <Route
                   path="panel"
                   element={<ProtectedRoute user={superUser} />}

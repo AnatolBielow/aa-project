@@ -1,7 +1,9 @@
 import styled from "styled-components";
+import { theme } from "../../../Helpers";
 
 export const EventSection = styled.section` 
 display: flex;
+flex-direction: column;
   gap: 50px;
   padding: 20px;
   background: linear-gradient(
@@ -12,8 +14,8 @@ display: flex;
     url(${(props) => props.img});
   background-size: cover;
 
-  @media (min-width: 1200px) {
-    display: flex;
+  @media (min-width: ${theme.desktop}) {
+    flex-direction: row;
     justify-content: center;
   }
 

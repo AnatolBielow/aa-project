@@ -9,6 +9,7 @@ import { PostsMenu } from "../../PostsMenu";
 
 const URL = process.env.REACT_APP_CLIENT
 
+
 export const SingleEvent = () => {
 
    const [post, setPost] = useState(null);

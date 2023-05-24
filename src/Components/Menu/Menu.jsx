@@ -47,6 +47,7 @@ export const Menu = ({ handleLoginButton }) => {
 
   const loginPageTrygger = () => {
     setLogin(!login);
+ 
   };
 
   useEffect(() => {
@@ -75,15 +76,15 @@ export const Menu = ({ handleLoginButton }) => {
               </Link>
             </NavigationItem>
           ))}
-          {currentUser && (  <NavigationItem>
+          {/* <NavigationItem>
               <Link to="/files">Sprawozdania</Link>
-            </NavigationItem>)}
+            </NavigationItem> */}
           {superUser && (
             <NavigationItem>
               <Link to="/panel/home">Panel</Link>
             </NavigationItem>
           )}
-          <LoginButton setShow={setShow} />
+          <LoginButton setShow={setShow} setOpen={setOpen}/>
         </NavigationList>
       </Navigation>
     </MenuWrapper>

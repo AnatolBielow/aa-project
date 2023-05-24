@@ -13,7 +13,7 @@ export const EventsSection = styled.section`
     url(${(props) => props.img});
   background-size: cover;
 
-  @media (min-width: 1200px) {
+  @media (min-width: ${theme.mobile}) {
     display: flex;
     justify-content: space-around;
     flex-direction: row-reverse;
@@ -38,24 +38,35 @@ export const Posts = styled.div`
 export const Post = styled.div`
 position: relative;
   padding-bottom: 20px;
+
   background-color: rgba(255, 255, 255, 1);
   &:not(:last-child) {
     border-bottom: 1px solid #d1d1d1;
+     margin-bottom: 20px;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: ${theme.mobile}) {
     display: flex;
-    gap: 100px;
+    flex: 3;
+    gap: 30px;
     &:nth-child(2n + 1) {
       flex-direction: row-reverse;
     }
   }
+  @media (min-width: ${theme.desktop}) {
+    gap: 100px;
+  }
 `;
 
 export const ImgContainer = styled.div`
-  img {
-    max-width: 300px;
-  }
+
+
+    width: 100%;
+ 
+    @media (min-width: ${theme.mobile}) {
+     max-width: 300px;
+    }
+  
 `;
 
 export const Img = styled.img``;
@@ -67,7 +78,7 @@ export const ContentWrapper = styled.div`
 `;
 
 export const Title = styled.h3`
-
+text-align: center;
   font-size: 48px;
 `;
 
@@ -83,7 +94,7 @@ export const Button = styled.button`
   background-color: white;
   border: 2px solid ${theme.accent};
   color: ${theme.accent};
-  margin-top: 20px;
+ margin: 20px auto;
 
   &:hover {
     border: 2px solid white;

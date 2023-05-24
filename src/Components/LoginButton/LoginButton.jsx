@@ -10,7 +10,7 @@ import {
 
 import { BtnWrapper, Button } from "./LoginButton.styled";
 
-export const LoginButton = ({setShow}) => {
+export const LoginButton = ({setShow, setOpen}) => {
   const { currentUser, logout } = useContext(AuthContext);
 
 
@@ -26,7 +26,7 @@ export const LoginButton = ({setShow}) => {
           {currentUser?.roles === "default" && <div>{defaultUser}</div>}
         </Button>
       ) : (
-        <Button onClick={()=> {setShow(true)}}>{loginIcon}</Button>
+        <Button onClick={()=> {setShow(true); setOpen(false)}}>{loginIcon}</Button>
       )}
     </BtnWrapper>
   );
